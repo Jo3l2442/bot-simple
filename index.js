@@ -1,6 +1,3 @@
-  .then(() => console.log("✅ LOGIN OK"))
-  .catch(err => console.error("❌ ERROR LOGIN:", err));
-
 process.on("unhandledRejection", console.error);
 
 const { Client, GatewayIntentBits, Partials, REST, Routes, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
@@ -95,6 +92,10 @@ const commands = [
 
 // --- CLIENTE DE DISCORD ---
 const client = new Client({
+  client.on("ready", () => {
+  console.log("🤖 BOT CONECTADO COMO " + client.user.tag);
+});
+
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
   partials: [Partials.GuildMember],
 });
@@ -595,5 +596,7 @@ client.on("guildMemberAdd", m => { reconstruirDivisiones(m.guild); });
 client.on("guildMemberRemove", m => { reconstruirDivisiones(m.guild); });
 
 client.login(process.env.TOKEN);
+  .then(() => console.log("✅ LOGIN OK"))
+  .catch(err => console.error("❌ ERROR LOGIN:", err));
 client.on("error", console.error);
 process.on("unhandledRejection", console.error);
