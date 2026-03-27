@@ -1,3 +1,14 @@
+console.log("🚀 ARRANCANDO BOT...");
+client.login(process.env.TOKEN)
+  .then(() => console.log("✅ LOGIN OK"))
+  .catch(e => console.error("❌ LOGIN ERROR:", e));
+
+client.on("ready", () => {
+  console.log("🤖 CONECTADO COMO " + client.user.tag);
+});
+
+process.on("unhandledRejection", console.error);
+
 const { Client, GatewayIntentBits, Partials, REST, Routes, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 
