@@ -1,3 +1,6 @@
+client.once("clientReady", () => {
+  console.log("🔥 BOT PRENDIDO CORRECTAMENTE");
+});
 const { Client, GatewayIntentBits, Partials, REST, Routes, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 
@@ -587,3 +590,5 @@ client.on("guildMemberAdd", m => { reconstruirDivisiones(m.guild); });
 client.on("guildMemberRemove", m => { reconstruirDivisiones(m.guild); });
 
 client.login(process.env.TOKEN);
+client.on("error", console.error);
+process.on("unhandledRejection", console.error);
