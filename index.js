@@ -1,16 +1,3 @@
-console.log("🚀 ARRANCANDO BOT...");
-
-const client = new Client({
-  intents: []
-});
-
-// eventos
-client.on("ready", () => {
-  console.log("🤖 BOT CONECTADO COMO " + client.user.tag);
-});
-
-// login SIEMPRE AL FINAL
-client.login(process.env.TOKEN)
   .then(() => console.log("✅ LOGIN OK"))
   .catch(err => console.error("❌ ERROR LOGIN:", err));
 
