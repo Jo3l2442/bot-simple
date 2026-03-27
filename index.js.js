@@ -1,6 +1,3 @@
-client.once("clientReady", () => {
-  console.log("🔥 BOT PRENDIDO CORRECTAMENTE");
-});
 const { Client, GatewayIntentBits, Partials, REST, Routes, SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 
@@ -97,6 +94,9 @@ const client = new Client({
   partials: [Partials.GuildMember],
 });
 
+client.once("clientReady", () => {
+  console.log("🔥 BOT PRENDIDO CORRECTAMENTE");
+});
 const quarantineMap = new Map();
 const CONFIG_FILE = "./discord-bot/config.json";
 const ROLES_FILE = "./discord-bot/roles.json";
