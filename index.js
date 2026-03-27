@@ -1,11 +1,20 @@
 console.log("🚀 ARRANCANDO BOT...");
+
+const { Client } = require("discord.js");
+
+const client = new Client({
+  intents: []
+});
+
+// eventos
+client.on("ready", () => {
+  console.log("🤖 BOT CONECTADO COMO " + client.user.tag);
+});
+
+// login SIEMPRE AL FINAL
 client.login(process.env.TOKEN)
   .then(() => console.log("✅ LOGIN OK"))
-  .catch(e => console.error("❌ LOGIN ERROR:", e));
-
-client.on("ready", () => {
-  console.log("🤖 CONECTADO COMO " + client.user.tag);
-});
+  .catch(err => console.error("❌ ERROR LOGIN:", err));
 
 process.on("unhandledRejection", console.error);
 
