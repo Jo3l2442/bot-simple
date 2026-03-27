@@ -1,7 +1,5 @@
 console.log("🚀 ARRANCANDO BOT...");
 
-const { Client } = require("discord.js");
-
 const client = new Client({
   intents: []
 });
